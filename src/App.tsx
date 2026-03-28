@@ -1,4 +1,10 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+
+/** Match Vite `base` so routes work under https://<user>.github.io/<repo>/ */
+const routerBasename =
+  import.meta.env.BASE_URL.replace(/\/$/, '') === ''
+    ? undefined
+    : import.meta.env.BASE_URL.replace(/\/$/, '')
 import { AuthProvider } from '@/context/AuthContext'
 import { DatingProvider } from '@/context/DatingContext'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
@@ -15,7 +21,7 @@ export default function App() {
   return (
     <AuthProvider>
       <DatingProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={routerBasename}>
           <Routes>
             <Route path="/" element={<Navigate to="/discover" replace />} />
 
