@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+/* App-wide tokens: soft Gen Z dating aesthetic */
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --radius-app: 1rem;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(1200px circle at 10% -10%, rgba(244, 114, 182, 0.18), transparent 45%),
+    radial-gradient(900px circle at 90% 0%, rgba(99, 102, 241, 0.16), transparent 42%),
+    linear-gradient(180deg, #0f0f12 0%, #12121a 40%, #0c0c10 100%);
+  color: #f4f4f5;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* Smooth scrolling for chat */
+.scroll-smooth-touch {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
